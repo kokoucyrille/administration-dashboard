@@ -63,14 +63,13 @@ h1, h2, h3 { font-family: %FONT%; }
 .st-key-header { height: 68px !important; min-height: 68px; padding: 0 20px !important; box-sizing: border-box; display:flex; align-items: center; }
 .st-key-header [data-testid="stHorizontalBlock"] { align-items: center; height: 68px; gap: 10px; width: 100%; }
 .st-key-header .stButton, .st-key-header [data-testid="stButton"], .st-key-header .stElementContainer { width: 100% !important; }
-.hdr { display: flex; align-items: center; gap: 14px; height: 68px; }
-.hdr img { height: 44px; width: auto; border-radius: 3px; box-shadow: 0 1px 3px rgba(0,0,0,.18); }
-.hdr .t1 { color: %green%; font-weight: 800; font-size: 20px; line-height: 22px; letter-spacing: .1px; }
-.hdr .t2 { color: %green%; font-weight: 600; font-size: 11px; line-height: 14px; }
-.hdr .t3 { color: %green%; font-weight: 800; font-size: 13px; line-height: 16px; }
+.hdr { display: flex; align-items: center; gap: 16px; height: 68px; }
+.hdr img { height: 48px; width: auto; border-radius: 3px; box-shadow: 0 1px 3px rgba(0,0,0,.18); }
+.hdr .t1 { color: %green%; font-weight: 800; font-size: 23px; line-height: 26px; letter-spacing: .1px; }
+.hdr .t2 { color: %green%; font-weight: 600; font-size: 12.5px; line-height: 16px; letter-spacing: .3px; }
 
 /* titre du challenge (à la place de l'ancien sélecteur de période) */
-.hdr-challenge { color: %green%; font-weight: 800; font-size: 14px; line-height: 18px; text-align: right; letter-spacing: .2px; }
+.hdr-challenge { color: %green%; font-weight: 800; font-size: 15px; line-height: 20px; text-align: right; letter-spacing: .2px; }
 
 /* boutons FR / EN */
 .st-key-header [data-testid="stDateInput"] { width: 100%; }
@@ -285,7 +284,7 @@ iframe[title*="folium"] { border-radius: 8px; border: 1px solid %border%; }
   [data-testid="stMain"] { margin-left: 0; }
   .st-key-navbar { overflow-x: auto; }
   .st-key-navbar [data-testid="stHorizontalBlock"] { min-width: 900px; }
-  .hdr .t1 { font-size: 15px; } .hdr .t2, .hdr .t3 { font-size: 10px; }
+  .hdr .t1 { font-size: 15px; } .hdr .t2 { font-size: 10px; }
 }
 """
 

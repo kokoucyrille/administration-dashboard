@@ -27,12 +27,11 @@ def create_header() -> None:
     st.session_state.setdefault("periode_h", st.session_state["periode"])
 
     with st.container(key="header"):
-        c_logo, c_title, c_fr, c_en = st.columns([5.4, 4.0, 0.5, 0.5], gap="small")
+        c_logo, c_title, c_fr, c_en = st.columns([4.0, 5.4, 0.5, 0.5], gap="small")
         c_logo.markdown(
             f'<div class="hdr"><img src="{flag_data_uri()}" alt="Togo">'
             '<div><div class="t1">RÉPUBLIQUE TOGOLAISE</div>'
-            '<div class="t2">TRAVAIL - LIBERTÉ - PATRIE</div>'
-            '<div class="t3">MINISTÈRE DE L\'ÉCONOMIE NUMÉRIQUE</div></div></div>', unsafe_allow_html=True)
+            '<div class="t2">TRAVAIL - LIBERTÉ - PATRIE</div></div></div>', unsafe_allow_html=True)
         c_title.markdown('<div class="hdr-challenge">DATA CHALLENGE - ADMINISTRATION TERRITORIALE ET MOBILITÉ | DÉFI 1</div>',
                          unsafe_allow_html=True)
         for col, code in ((c_fr, "fr"), (c_en, "en")):

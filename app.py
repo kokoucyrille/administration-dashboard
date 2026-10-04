@@ -6,7 +6,7 @@ Chaque page vit dans pages/ ; l'en-tête, la barre de navigation et le CSS sont 
 """
 import streamlit as st
 
-st.set_page_config(page_title="Économie Numérique – Togo", page_icon="assets/logo_togo.png", layout="wide",
+st.set_page_config(page_title="Économie Numérique – Togo", page_icon="assets/favicon.png", layout="wide",
                    initial_sidebar_state="expanded")
 
 from components.header import create_header          # noqa: E402  (après set_page_config)
