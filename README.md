@@ -47,9 +47,9 @@ assets/embedded_fonts.css   polices + icônes en base64 (généré)
 
 ## Filtres
 
-La sidebar est propre à chaque page. Les choix ne sont appliqués qu'au clic sur **Appliquer les filtres**
+La sidebar est propre à chaque page. Chaque choix s'applique immédiatement, dès la sélection
 (état dans `st.session_state`) ; **Réinitialiser** remet tout à zéro. La période (en-tête ou sidebar)
-s'applique immédiatement. Région → préfecture → commune sont en cascade. Les KPI, graphiques, cartes et
+s'applique aussi immédiatement. Région → préfecture → commune sont en cascade. Les KPI, graphiques, cartes et
 tableaux sont recalculés à partir des filtres.
 
 ## Données

@@ -2,7 +2,7 @@
 Charte graphique et CSS global du dashboard.
 
 Dimensions relevées sur les maquettes (résolution de référence 1670 x 942 px) :
-  * header 85 px, barre de navigation 61 px -> bandeau supérieur fixe de 146 px
+  * header 68 px, barre de navigation 61 px -> bandeau supérieur fixe de 129 px
   * sidebar 290 px, marges du contenu 20 px
   * cartes KPI : ~122 px de haut, icône ronde 64 px, valeur 32 px
   * panneaux : rayon 10 px, bordure 1 px #ddedef, ombre très légère
@@ -38,7 +38,7 @@ THEME = {
 OP_COLORS = {"Togocom": "#016b4b", "Moov": "#fec902", "Yas": "#f20e36", "Autres": "#a2b8cc"}
 FONT = "'Nunito Sans', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
 
-TOPBAR_H = 146     # header (85) + navbar (61)
+TOPBAR_H = 129     # header (68) + navbar (61)
 SIDEBAR_W = 290
 
 _CSS = """
@@ -60,14 +60,14 @@ h1, h2, h3 { font-family: %FONT%; }
 /* ---------- Bandeau supérieur fixe (header + navbar) ---------- */
 .st-key-topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: %bg%; padding: 0 !important; gap: 0 !important; height: var(--topbar); box-sizing: border-box; }
 .st-key-topbar > div { gap: 0 !important; }
-.st-key-header { height: 85px !important; min-height: 85px; padding: 0 20px !important; box-sizing: border-box; display:flex; align-items: center; }
-.st-key-header [data-testid="stHorizontalBlock"] { align-items: center; height: 85px; gap: 10px; width: 100%; }
+.st-key-header { height: 68px !important; min-height: 68px; padding: 0 20px !important; box-sizing: border-box; display:flex; align-items: center; }
+.st-key-header [data-testid="stHorizontalBlock"] { align-items: center; height: 68px; gap: 10px; width: 100%; }
 .st-key-header .stButton, .st-key-header [data-testid="stButton"], .st-key-header .stElementContainer { width: 100% !important; }
-.hdr { display: flex; align-items: center; gap: 18px; height: 85px; }
-.hdr img { height: 56px; width: auto; border-radius: 3px; box-shadow: 0 1px 3px rgba(0,0,0,.18); }
-.hdr .t1 { color: %green%; font-weight: 800; font-size: 25px; line-height: 27px; letter-spacing: .1px; }
-.hdr .t2 { color: %green%; font-weight: 600; font-size: 13.5px; line-height: 17px; }
-.hdr .t3 { color: %green%; font-weight: 800; font-size: 16px; line-height: 20px; }
+.hdr { display: flex; align-items: center; gap: 14px; height: 68px; }
+.hdr img { height: 44px; width: auto; border-radius: 3px; box-shadow: 0 1px 3px rgba(0,0,0,.18); }
+.hdr .t1 { color: %green%; font-weight: 800; font-size: 20px; line-height: 22px; letter-spacing: .1px; }
+.hdr .t2 { color: %green%; font-weight: 600; font-size: 11px; line-height: 14px; }
+.hdr .t3 { color: %green%; font-weight: 800; font-size: 13px; line-height: 16px; }
 
 /* sélecteur de période + FR / EN */
 .st-key-header [data-testid="stDateInput"] { width: 100%; }
@@ -78,10 +78,10 @@ h1, h2, h3 { font-family: %FONT%; }
 .st-key-header .stButton button[kind="primary"] { background: %green%; border: 1.5px solid %green%; color: #fff; }
 
 /* navbar */
-.st-key-navbar { background: %green%; height: 61px !important; min-height: 61px; padding: 0 12px !important; box-sizing: border-box; display: flex; align-items: center; }
-.st-key-navbar [data-testid="stHorizontalBlock"] { gap: 6px; width: 100%; align-items: center; flex-wrap: nowrap; }
+.st-key-navbar { background: %green%; height: 61px !important; min-height: 61px; padding: 8px 12px 0 12px !important; box-sizing: border-box; display: flex; align-items: flex-start; }
+.st-key-navbar [data-testid="stHorizontalBlock"] { gap: 6px; width: 100%; align-items: flex-start; flex-wrap: nowrap; }
 .st-key-navbar [data-testid="stColumn"] { min-width: 0; }
-.st-key-navbar .stButton button { height: 46px; min-height: 46px; width: 100%; border-radius: 8px; border: none; font-weight: 700; font-size: 15px;
+.st-key-navbar .stButton button { height: 44px; min-height: 44px; width: 100%; border-radius: 8px; border: none; font-weight: 700; font-size: 15px;
     background: transparent; color: #fff; padding: 0 6px; box-shadow: none; justify-content: center; white-space: nowrap; }
 .st-key-navbar .stButton button p { font-size: 15px; font-weight: 700; margin: 0; }
 .st-key-navbar .stButton button:hover { background: rgba(255,255,255,.12); color: #fff; }
@@ -101,7 +101,6 @@ h1, h2, h3 { font-family: %FONT%; }
 .st-key-nav_7 button p::before { --fa: "\\e473"; }
 .st-key-navbar button p::before, section[data-testid="stSidebar"] .stButton button p::before {
     content: var(--fa); font-family: "Font Awesome 7 Free"; font-weight: 900; margin-right: 10px; font-size: 18px; display: inline-block; vertical-align: -1px; }
-.st-key-apply_accueil button p::before, .st-key-apply_infrastructures button p::before, .st-key-apply_services button p::before, .st-key-apply_recommandations button p::before { --fa: "\\f0b0"; }
 .st-key-reset_accueil button p::before, .st-key-reset_infrastructures button p::before, .st-key-reset_services button p::before, .st-key-reset_recommandations button p::before { --fa: "\\f021"; color: %green%; }
 
 /* ---------- Sidebar ---------- */
@@ -157,9 +156,6 @@ section[data-testid="stSidebar"] [data-testid="stMultiSelectTagsContainer"] [dat
 .st-key-navbar .stButton button, .st-key-header .stButton button { cursor: pointer; transition: background-color .15s ease; }
 .st-key-navbar .stButton button[kind="secondary"]:hover { background: rgba(255,255,255,.16); }
 section[data-testid="stSidebar"] .stButton button[kind="primary"]:hover { filter: brightness(.96); }
-.f-hint { min-height: 18px; margin: 8px 0 18px 0;   /* 18px bas : compense la marge -1rem de Streamlit */
-    font-size: 12.5px; font-weight: 700; color: #8a5a00; display:flex; align-items:center; gap: 8px; }
-.f-hint i { color: #c98a00; font-size: 14px; }
 
 /* ---------- Titres de page ---------- */
 .page-title { display:flex; align-items:center; gap:16px; margin: 0 0 18px 0; }
@@ -168,6 +164,7 @@ section[data-testid="stSidebar"] .stButton button[kind="primary"]:hover { filter
 .page-title p { color:%blue_link%; font-size: 14.5px; margin: 2px 0 0 0; }
 
 /* ---------- Cartes KPI ---------- */
+.st-key-kpi_row { margin-bottom: 12px; }   /* petit espace entre les KPI et les sections suivantes */
 .kpi { display:flex; align-items:center; gap: 11px; height: 122px; border-radius: 10px; padding: 0 12px; border: 1px solid rgba(0,0,0,.05); }
 .kpi__icon { flex: 0 0 56px; width:56px; height:56px; border-radius: 50%; display:flex; align-items:center; justify-content:center; color:#fff; font-size: 24px; }
 .kpi__body { min-width: 0; flex: 1; }
@@ -276,7 +273,7 @@ iframe[title*="folium"] { border-radius: 8px; border: 1px solid %border%; }
 }
 @media (max-width: 1280px) {
   :root { --sidebar: 250px; }
-  .hdr .t1 { font-size: 21px; } .kpi__value { font-size: 22px; } .kpi__icon { flex-basis: 44px; width:44px; height:44px; font-size: 19px; }
+  .hdr .t1 { font-size: 17px; } .kpi__value { font-size: 22px; } .kpi__icon { flex-basis: 44px; width:44px; height:44px; font-size: 19px; }
   .st-key-navbar .stButton button p { font-size: 13px; } .st-key-navbar button p::before { display:none; }
 }
 @media (max-width: 900px) {
@@ -285,7 +282,7 @@ iframe[title*="folium"] { border-radius: 8px; border: 1px solid %border%; }
   [data-testid="stMain"] { margin-left: 0; }
   .st-key-navbar { overflow-x: auto; }
   .st-key-navbar [data-testid="stHorizontalBlock"] { min-width: 900px; }
-  .hdr .t1 { font-size: 17px; } .hdr .t2, .hdr .t3 { font-size: 11px; }
+  .hdr .t1 { font-size: 15px; } .hdr .t2, .hdr .t3 { font-size: 10px; }
 }
 """
 

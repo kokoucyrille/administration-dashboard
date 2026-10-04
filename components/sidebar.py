@@ -1,10 +1,10 @@
 """
 Sidebar verticale de filtres.
 
-Chaque page possède son jeu de filtres (cf. PAGE_FILTERS). Les valeurs choisies sont des
-« brouillons » (widgets `w_<page>_<nom>`) ; elles ne deviennent effectives qu'au clic sur
-« Appliquer les filtres » (copiées dans `applied_<page>`). « Réinitialiser » remet tout à zéro.
-La période est globale et s'applique immédiatement (synchronisée avec celle de l'en-tête).
+Chaque page possède son jeu de filtres (cf. PAGE_FILTERS). Les valeurs choisies (widgets
+`w_<page>_<nom>`) s'appliquent immédiatement, dès la sélection : elles sont recopiées dans
+`applied_<page>` à chaque exécution. « Réinitialiser » remet tout à zéro.
+La période est globale (synchronisée avec celle de l'en-tête).
 """
 from __future__ import annotations
 
@@ -58,11 +58,6 @@ def _on_pref(page: str) -> None:
     st.session_state[_key(page, "commune")] = D.ALL_COMMUNES
 
 
-def _apply(page: str) -> None:
-    names = PAGE_FILTERS[page]["fields"]
-    st.session_state[f"applied_{page}"] = {n: st.session_state[_key(page, n)] for n in names if _key(page, n) in st.session_state}
-
-
 def _reset(page: str) -> None:
     for n in PAGE_FILTERS[page]["fields"]:
         st.session_state[_key(page, n)] = FIELDS[n][3]
@@ -99,13 +94,6 @@ def _options(page: str, name: str) -> list:
     }[name]
 
 
-def _has_pending(page: str) -> bool:
-    """Vrai si un filtre a été modifié sans avoir été appliqué (brouillon différent de la valeur appliquée)."""
-    ss = st.session_state
-    applied = ss.get(f"applied_{page}", {})
-    return any(_key(page, n) in ss and ss[_key(page, n)] != applied.get(n, FIELDS[n][3]) for n in PAGE_FILTERS[page]["fields"])
-
-
 def create_sidebar(page: str) -> dict:
     """Dessine la sidebar de la page et renvoie le dictionnaire de filtres APPLIQUÉS."""
     spec = PAGE_FILTERS[page]
@@ -139,10 +127,9 @@ def create_sidebar(page: str) -> dict:
             else:
                 st.multiselect(label, opts, key=key, label_visibility="collapsed", placeholder=FIELDS[name][3] or "Tous", **kw)
 
-        hint = ('<i class="fa-solid fa-circle-info"></i><span>Modifications non appliquées</span>' if _has_pending(page) else "")
-        st.markdown(f'<div class="f-hint">{hint}</div>', unsafe_allow_html=True)
-        st.button("Appliquer les filtres", key=f"apply_{page}", type="primary",
-                  width="stretch", on_click=_apply, args=(page,))
+        # application immédiate : les valeurs courantes des widgets deviennent les filtres appliqués
+        ss[f"applied_{page}"] = {n: ss[_key(page, n)] for n in spec["fields"] if _key(page, n) in ss}
+
         st.button("Réinitialiser", key=f"reset_{page}", type="secondary",
                   width="stretch", on_click=_reset, args=(page,))
         st.markdown(f'<div class="side-foot"><img src="{flag_data_uri()}" alt=""><div><b>Togo Numérique</b>'

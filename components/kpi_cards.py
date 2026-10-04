@@ -31,7 +31,8 @@ def create_kpi_card(title: str, value: str, icon: str, variant: str = "green") -
 
 def create_kpi_row(cards: list[dict]) -> None:
     """Affiche une rangée de KPI. Chaque carte : {title, value, icon, variant}."""
-    cols = st.columns(len(cards), gap="small")
-    for col, c in zip(cols, cards):
-        col.markdown(create_kpi_card(c["title"], c["value"], c["icon"], c.get("variant", "green")),
-                     unsafe_allow_html=True)
+    with st.container(key="kpi_row"):
+        cols = st.columns(len(cards), gap="small")
+        for col, c in zip(cols, cards):
+            col.markdown(create_kpi_card(c["title"], c["value"], c["icon"], c.get("variant", "green")),
+                         unsafe_allow_html=True)

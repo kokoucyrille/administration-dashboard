@@ -29,7 +29,7 @@ current = st.navigation(list(PAGES.values()), position="hidden")
 current_key = next(k for k, p in PAGES.items() if p.url_path == current.url_path or (k == "accueil" and current.url_path == ""))
 
 inject_css()
-with st.container(key="topbar"):                    # bandeau fixe : header (85 px) + navbar (61 px)
+with st.container(key="topbar"):                    # bandeau fixe : header (68 px) + navbar (61 px)
     create_header()
     create_navbar(PAGES, current_key)
 current.run()
