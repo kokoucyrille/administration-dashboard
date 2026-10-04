@@ -69,7 +69,10 @@ h1, h2, h3 { font-family: %FONT%; }
 .hdr .t2 { color: %green%; font-weight: 600; font-size: 11px; line-height: 14px; }
 .hdr .t3 { color: %green%; font-weight: 800; font-size: 13px; line-height: 16px; }
 
-/* sélecteur de période + FR / EN */
+/* titre du challenge (à la place de l'ancien sélecteur de période) */
+.hdr-challenge { color: %green%; font-weight: 800; font-size: 14px; line-height: 18px; text-align: right; letter-spacing: .2px; }
+
+/* boutons FR / EN */
 .st-key-header [data-testid="stDateInput"] { width: 100%; }
 .st-key-header [data-testid="stDateInput"] > div > div { background: #fff; border: 1.5px solid #c9e2ea; border-radius: 10px; min-height: 44px; }
 .st-key-header [data-testid="stDateInput"] input { color: %blue_link%; font-weight: 600; font-size: 14px; text-align: center; }
